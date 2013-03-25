@@ -14,7 +14,11 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  if a == b && b == c
+  if a <= 0 || b <= 0 || c <= 0
+    raise TriangleError, "Triangle side length must be greater than zero"
+  elsif a + b <= c || a + c <= b || b + c <= a
+    raise TriangleError, "No triangle side may be larger than the sum of the other two sides."
+  elsif a == b && b == c
     :equilateral
   elsif a == b || a == c || b == c
     :isosceles
