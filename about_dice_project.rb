@@ -1,17 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 
 class DiceSet
-  attr_accessor :values, :previous_values
-
-  def initialize
-    @values = []
-    @previous_values = nil
-  end
+  attr_accessor :values
 
   def roll(num)
-    values.clear
+    self.values = []
     num.times do
-      values << roll_die
+      self.values << roll_die
     end
   end
 
